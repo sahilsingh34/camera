@@ -7,7 +7,10 @@ export default function ModelOverlay() {
     const { scrollYProgress } = useScroll();
 
     // Scroll Animations
-    const nameOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+    // Model Name: Fade In (Start) -> Stay -> Fade Out
+    // "Fade in after scroll start": Starts at 0, fades in by 0.1, stays till 0.2, fades out.
+    const nameOpacity = useTransform(scrollYProgress, [0, 0.05, 0.2, 0.25], [0, 1, 1, 0]);
+
     // Description: Fade In (0.1) -> Stay -> Fade Out (0.45)
     // CTA: Fade In (0.4) -> Stay -> Fade Out (0.5)
     // Note: Hero is 350vh.
