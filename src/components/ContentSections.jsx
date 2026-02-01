@@ -10,9 +10,10 @@ const ParallaxSection = ({ title, children, subtitle, index }) => {
     });
 
     // SMOOTHING: Add spring physics to the raw scroll input
+    // "Optimize for Laptop/Macbook": Lower stiffness creates more "float/lag" which hides trackpad jitter.
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
+        stiffness: 60,  // Was 100. Lower = Smoother/Slower follow
+        damping: 25,    // Was 30.
         restDelta: 0.001
     });
 
