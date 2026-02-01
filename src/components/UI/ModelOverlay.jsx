@@ -8,8 +8,9 @@ export default function ModelOverlay() {
 
     // Scroll Animations
     // Model Name: Fade In (Start) -> Stay -> Fade Out
-    // "Fade in after scroll start": Starts at 0, fades in by 0.1, stays till 0.2, fades out.
-    const nameOpacity = useTransform(scrollYProgress, [0, 0.05, 0.2, 0.25], [0, 1, 1, 0]);
+    // "Remove this text after i start scrolling":
+    // Fade IN at 0.02 (rapidly), Hold till 0.08, Fade OUT by 0.15 (Gone before heavy animation)
+    const nameOpacity = useTransform(scrollYProgress, [0, 0.02, 0.08, 0.15], [0, 1, 1, 0]);
 
     // Description: Fade In (0.1) -> Stay -> Fade Out (0.45)
     // CTA: Fade In (0.4) -> Stay -> Fade Out (0.5)
