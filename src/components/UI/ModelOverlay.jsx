@@ -8,15 +8,13 @@ export default function ModelOverlay() {
 
     // Scroll Animations
     // Model Name: Fade In (Start) -> Stay -> Fade Out
-    // "Remove this text after i start scrolling":
-    // Fade IN at 0.02 (rapidly), Hold till 0.08, Fade OUT by 0.15 (Gone before heavy animation)
-    const nameOpacity = useTransform(scrollYProgress, [0, 0.02, 0.08, 0.15], [0, 1, 1, 0]);
+    // "Both text coming together": Fixed by ending Name BEFORE Desc starts.
+    // Name: Gone by 0.12
+    const nameOpacity = useTransform(scrollYProgress, [0, 0.02, 0.08, 0.12], [0, 1, 1, 0]);
 
-    // Description: Fade In (0.1) -> Stay -> Fade Out (0.45)
-    // CTA: Fade In (0.4) -> Stay -> Fade Out (0.5)
-    // Note: Hero is 350vh.
-
-    const descOpacity = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [0, 1, 1, 0]);
+    // Description: Fade In (0.15) -> Stay -> Fade Out (0.45)
+    // Starts AFTER Name is gone.
+    const descOpacity = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.45], [0, 1, 1, 0]);
     const descY = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [20, 0, 0, -50]);
 
     const ctaOpacity = useTransform(scrollYProgress, [0.4, 0.5, 0.55, 0.65], [0, 1, 1, 0]);
